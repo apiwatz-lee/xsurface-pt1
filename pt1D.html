@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<body>
+	
+	<ul id="container">
+		
+	</ul>
+	
+	<script>
+	
+	//Create a function that receives input from question C and always displays a bullet list of Outputs with this format style.
+		const container = document.getElementById("container")
+			
+		const employees = [
+					{ name: 'A', age: 30},
+					{ name: 'B', age: 9},
+					{ name: 'C', age: 20},
+					{ name: 'D', age: 18},
+					{ name: 'E', age: 11},
+					{ name: 'F', age: 60},
+					{ name: 'G', age: 27},
+					{ name: 'H', age: 90},
+					{ name: 'I', age: 21},
+					{ name: 'J', age: 12}
+					]
+
+		
+			function displayBullet(employees){
+
+			 	return employees.map((item,index)=>{
+							return `<li class="list" key=${index}>
+										<p class="message">This is <span class="name">${item.name}</span>, <span class="correct-message">It correctly outputs from question C.</span></p>
+									</li>`
+							})
+		
+			}
+
+			container.innerHTML = displayBullet(employees).join('')
+
+	</script>
+
+
+</body>
+</html>
+

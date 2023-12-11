@@ -1,0 +1,15 @@
+.list{
+    color:green;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.name{
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+}
+
+.correct-message{
+    background-color: rgb(92, 8, 8);
+    color:white;
+}
