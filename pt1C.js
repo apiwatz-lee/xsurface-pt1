@@ -31,42 +31,16 @@ const employees = [
 	{ name: 'J', age: 12}
 ]
 
-function sixYoungPersonWhoHaveThreeFactorInAge(employees){
+function employeeAgeUnder60(employees){
   
-    let sortAge = [];
-    let ageThreeFactor = [];
-    let result = [];
-
-    for(let i = 1 ; i < employees.length; i++){
-
-        for(let j = 0 ; j < i ; j++){
-        
-            if(employees[j].age > employees[i].age){
-
-                let storage = employees[i]
-                employees[i] = employees[j]
-                employees[j] = storage
-
-            }
-        }
-    }
-
-    sortAge = employees;
-
-    for(let i = 0 ; i < sortAge.length ; i++){
-        if(employees[i].age % 3 === 0){
-            ageThreeFactor.push(employees[i])
-        }
-    }
-
-    for(let i = 0 ; i < 6 ; i++){
-        result.push(ageThreeFactor[i].name)
-    }
-
-    return result;
+    return employees
+    .filter(employee => employee.age %3 === 0 && employee.age < 60)
+    .sort((a,b)=> a.age - b.age )
+    .map((item)=>item.name)
+    
 }
 
-console.log(sixYoungPersonWhoHaveThreeFactorInAge(employees));
+console.log(employeeAgeUnder60(employees));
 
 
 

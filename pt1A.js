@@ -11,8 +11,6 @@
 // { name: "Alex", tel: "0991113122", code: "xsf0003"}
 // ] 
 
-//เอา code ออกมาเป็น key ใช้คุณสมบัติ obj overwrite
-
 const employees = [ 
     { name: "Alex", tel: "0991112222", code: "xsf0001"},
     { name: "Jane", tel: "0812221234", code: "xsf0002"},
@@ -21,21 +19,24 @@ const employees = [
     ] 
 
 function removeDuplicateCode(employees){
-   
-   let newArray = [];
-   let uniqueCode = {};
 
-   for(let i = 0 ; i < employees.length ; i++){
-        codeValue = employees[i].code
-        uniqueCode[codeValue] = employees[i]
-   }
+     let removeDuplicate = employees.reduce((prev,curr)=>{
 
-   for(key in uniqueCode){
-        newArray.push(uniqueCode[key])
-   }
+          const findDuplicate = prev.find((item)=> item.code === curr.code) //code ซ้ำไหม ?
 
-   return newArray;
-    
+          if(findDuplicate){
+               if(typeof findDuplicate.tel === 'string'){
+                    findDuplicate.tel = [findDuplicate.tel,curr.tel]
+               }else{
+                    findDuplicate.tel.push(curr.tel)
+               }
+               return prev; 
+          }
+
+          return [...prev,curr] 
+     },[])
+     
+     return removeDuplicate;
 }
 
 console.log(removeDuplicateCode(employees));

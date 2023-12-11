@@ -11,32 +11,19 @@
 
 let customers = { 
     customer: "Xsurface", 
-    contact: [
-        {name: 'Max'},
-        {name: 'Mike'},
-        {name: 'Adam'}
-    ],
+    contact: [{name: 'Max'},{name: 'Mike'},{name: 'Adam'}],
     address: 'Sukhumvit 62',
     }
 
 function convertFormat(customers){
-    
-    let array = [];
 
-    for(let i = 0 ; i < customers.contact.length; i++){
-        console.log(customers.contact[i]);
-        for(key in customers.contact[i]){
-            array.push(customers.contact[i])
-        }
-     }
-    
+    const {customer,address} = customers
 
-    for(let i = 0 ; i < array.length ; i++){
-        array[i]['customer'] = customers.customer
-        array[i]['address'] = customers.address
-    }
+    const newFormat = customers.contact.map((contact)=>{
+        return {...contact,customer,address}
+    })
 
-    return array;
+    return newFormat
 }
 
 console.log(convertFormat(customers));
