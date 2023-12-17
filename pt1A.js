@@ -22,7 +22,7 @@ function removeDuplicateCode(employees){
 
      let removeDuplicate = employees.reduce((prev,curr)=>{
 
-          const findDuplicate = prev.find((item)=> item.code === curr.code) //code ซ้ำไหม ?
+          const findDuplicate = prev.find((item)=> item.code === curr.code) 
 
           if(findDuplicate){
                if(typeof findDuplicate.tel === 'string'){
